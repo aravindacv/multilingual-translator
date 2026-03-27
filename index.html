@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Traveler's Phrasebook-AI</title>
+  <title>Multilingual Translator · CVA</title>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
@@ -11,9 +11,8 @@
 <!-- ── Credit Banner ── -->
 <div class="credit-banner" style="position:relative;">
   Designed &amp; Developed by <span>CVA</span>
-  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light / dark mode">
-    <span id="theme-icon">🌙</span>
-    <span id="theme-label">Dark</span>
+  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light / dark">
+    <span id="theme-icon">🌙</span><span id="theme-label">Dark</span>
   </button>
 </div>
 
@@ -21,9 +20,9 @@
 
   <!-- ── Header ── -->
   <header>
-    <div class="header-badge"><span class="header-dot"></span>4 Languages · Live Translation</div>
+    <div class="header-badge"><span class="header-dot"></span>4 Languages · Live Translation · Conversation Mode</div>
     <h1>Multilingual<br>Translator</h1>
-    <p>Earn Skill Not Degree</p>
+    <p>Translate · Travel · Converse — breaking language barriers in real time</p>
     <div class="lang-pills">
       <span class="lang-pill pill-ja">Japanese</span>
       <span class="lang-pill pill-ar">Arabic</span>
@@ -34,23 +33,16 @@
 
   <!-- ── Main tabs ── -->
   <div class="main-tabs">
-    <button class="main-tab tab-active" id="tab-translator">
-      <span>🔤</span> Translator
-    </button>
-    <button class="main-tab" id="tab-traveler">
-      <span>✈️</span> Traveler Phrasebook
-    </button>
+    <button class="main-tab tab-active" id="tab-translator">🔤 Translator</button>
+    <button class="main-tab" id="tab-traveler">✈️ Phrasebook</button>
+    <button class="main-tab" id="tab-conversation">💬 Conversation</button>
   </div>
 
-  <!-- ════════════════════════════════════════════
-       TRANSLATOR PANEL
-  ════════════════════════════════════════════ -->
+  <!-- ════════════ TRANSLATOR PANEL ════════════ -->
   <div id="panel-translator">
     <div class="input-section">
       <label class="input-label" for="english-input">Enter English text</label>
-      <textarea id="english-input"
-        placeholder="Type a word or phrase… e.g. good morning, my name is aravinda"
-        maxlength="200" spellcheck="true" autofocus></textarea>
+      <textarea id="english-input" placeholder="Type a word or phrase… e.g. good morning" maxlength="200" spellcheck="true" autofocus></textarea>
       <div class="input-footer">
         <span id="char-count">0 / 200</span>
         <div class="btn-row">
@@ -97,9 +89,8 @@
               <polygon points="85,105 160,35 235,105" fill="url(#fuji-grad)"/>
               <polygon points="140,55 160,35 180,55 170,58 160,50 150,58" fill="white" opacity="0.95"/>
               <rect x="0" y="105" width="320" height="25" fill="#1a0d2e"/>
-              <rect x="145" y="70" width="4" height="32" fill="#e63946" opacity="0.9"/>
-              <rect x="171" y="70" width="4" height="32" fill="#e63946" opacity="0.9"/>
-              <path d="M140 68 Q160 62 180 68" fill="none" stroke="#e63946" stroke-width="5" opacity="0.9"/>
+              <rect x="145" y="70" width="4" height="32" fill="#e63946"/><rect x="171" y="70" width="4" height="32" fill="#e63946"/>
+              <path d="M140 68 Q160 62 180 68" fill="none" stroke="#e63946" stroke-width="5"/>
               <rect x="140" y="68" width="40" height="5" rx="1" fill="#e63946"/>
               <circle cx="42" cy="82" r="12" fill="#ff85a1" opacity="0.8"/>
               <circle cx="278" cy="82" r="12" fill="#ff85a1" opacity="0.8"/>
@@ -107,15 +98,9 @@
             <div class="banner-overlay"></div>
           </div>
           <div class="card-body">
-            <div class="lang-header">
-              <div class="lang-icon icon-ja">JP</div>
-              <span class="lang-name">Japanese</span>
-              <span class="lang-code">JA</span>
-            </div>
-            <p class="script-label">Native script</p>
-            <p class="native-script">—</p>
-            <p class="script-label">Transliteration (Romaji)</p>
-            <p class="transliteration">—</p>
+            <div class="lang-header"><div class="lang-icon icon-ja">JP</div><span class="lang-name">Japanese</span><span class="lang-code">JA</span></div>
+            <p class="script-label">Native script</p><p class="native-script">—</p>
+            <p class="script-label">Transliteration (Romaji)</p><p class="transliteration">—</p>
             <button class="copy-btn" onclick="copyCard('japanese')">Copy</button>
           </div>
         </div>
@@ -127,8 +112,7 @@
               <defs><linearGradient id="ar-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d1b3e"/><stop offset="100%" stop-color="#1a4a3a"/></linearGradient></defs>
               <rect width="320" height="130" fill="url(#ar-sky)"/>
               <circle cx="30" cy="15" r="1.2" fill="white" opacity="0.9"/><circle cx="120" cy="20" r="1.5" fill="white" opacity="0.95"/><circle cx="280" cy="14" r="1.1" fill="white" opacity="0.85"/>
-              <circle cx="260" cy="25" r="14" fill="#f5d76e" opacity="0.95"/>
-              <circle cx="267" cy="20" r="11" fill="#0d1b3e"/>
+              <circle cx="260" cy="25" r="14" fill="#f5d76e" opacity="0.95"/><circle cx="267" cy="20" r="11" fill="#0d1b3e"/>
               <ellipse cx="80" cy="115" rx="90" ry="20" fill="#c8a96e"/>
               <ellipse cx="160" cy="112" rx="80" ry="15" fill="#c8a96e" opacity="0.9"/>
               <ellipse cx="160" cy="82" rx="28" ry="22" fill="#0d2a1f"/>
@@ -143,15 +127,9 @@
             <div class="banner-overlay"></div>
           </div>
           <div class="card-body">
-            <div class="lang-header">
-              <div class="lang-icon icon-ar">AR</div>
-              <span class="lang-name">Arabic</span>
-              <span class="lang-code">AR</span>
-            </div>
-            <p class="script-label">Native script</p>
-            <p class="native-script">—</p>
-            <p class="script-label">Transliteration (Latin)</p>
-            <p class="transliteration">—</p>
+            <div class="lang-header"><div class="lang-icon icon-ar">AR</div><span class="lang-name">Arabic</span><span class="lang-code">AR</span></div>
+            <p class="script-label">Native script</p><p class="native-script">—</p>
+            <p class="script-label">Transliteration (Latin)</p><p class="transliteration">—</p>
             <button class="copy-btn" onclick="copyCard('arabic')">Copy</button>
           </div>
         </div>
@@ -182,15 +160,9 @@
             <div class="banner-overlay"></div>
           </div>
           <div class="card-body">
-            <div class="lang-header">
-              <div class="lang-icon icon-kn">KN</div>
-              <span class="lang-name">Kannada</span>
-              <span class="lang-code">KN</span>
-            </div>
-            <p class="script-label">Native script</p>
-            <p class="native-script">—</p>
-            <p class="script-label">Transliteration (IAST)</p>
-            <p class="transliteration">—</p>
+            <div class="lang-header"><div class="lang-icon icon-kn">KN</div><span class="lang-name">Kannada</span><span class="lang-code">KN</span></div>
+            <p class="script-label">Native script</p><p class="native-script">—</p>
+            <p class="script-label">Transliteration (IAST)</p><p class="transliteration">—</p>
             <button class="copy-btn" onclick="copyCard('kannada')">Copy</button>
           </div>
         </div>
@@ -219,41 +191,94 @@
             <div class="banner-overlay"></div>
           </div>
           <div class="card-body">
-            <div class="lang-header">
-              <div class="lang-icon icon-ml">ML</div>
-              <span class="lang-name">Malayalam</span>
-              <span class="lang-code">ML</span>
-            </div>
-            <p class="script-label">Native script</p>
-            <p class="native-script">—</p>
-            <p class="script-label">Transliteration (Roman)</p>
-            <p class="transliteration">—</p>
+            <div class="lang-header"><div class="lang-icon icon-ml">ML</div><span class="lang-name">Malayalam</span><span class="lang-code">ML</span></div>
+            <p class="script-label">Native script</p><p class="native-script">—</p>
+            <p class="script-label">Transliteration (Roman)</p><p class="transliteration">—</p>
             <button class="copy-btn" onclick="copyCard('malayalam')">Copy</button>
           </div>
         </div>
 
       </div>
     </div>
-  </div><!-- end panel-translator -->
+  </div>
 
-  <!-- ════════════════════════════════════════════
-       TRAVELER PHRASEBOOK PANEL
-  ════════════════════════════════════════════ -->
+  <!-- ════════════ TRAVELER PANEL ════════════ -->
   <div id="panel-traveler" class="hidden">
-
     <div class="traveler-intro">
       <div class="traveler-intro-icon">✈️</div>
       <div class="traveler-intro-text">
         <h3>Traveler's Phrasebook</h3>
-        <p>Pick a situation below. Tap any phrase to see it in all 4 scripts. Hit <strong>Show to Local</strong> to display it full-screen so they can read it directly.</p>
+        <p>Pick a situation. Tap <strong>Show to Local</strong> to display the native script fullscreen — hand your phone to them and they read their own language.</p>
       </div>
     </div>
-
     <div id="situation-bar"></div>
     <div id="traveler-lang-bar"></div>
     <div id="phrase-list"></div>
+  </div>
 
-  </div><!-- end panel-traveler -->
+  <!-- ════════════ CONVERSATION MODE PANEL ════════════ -->
+  <div id="panel-conversation" class="hidden">
+
+    <div class="conv-intro">
+      <div class="conv-intro-icon">💬</div>
+      <div class="conv-intro-text">
+        <h3>Face-to-Face Conversation Mode</h3>
+        <p>One screen. Two people. No interpreter. You type English at the top — they read their language. They type back — you read English. Tap 🎤 to speak instead of type.</p>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="conv-controls">
+      <span class="conv-lang-label">Their language:</span>
+      <select id="conv-lang-selector"></select>
+      <button id="conv-clear">Clear chat</button>
+    </div>
+
+    <div id="conv-voice-note" class="hidden">
+      Voice input is available in Chrome on Android/desktop. On other browsers, type instead.
+    </div>
+
+    <!-- Split input panels -->
+    <div class="conv-split">
+
+      <!-- Person A — English speaker -->
+      <div class="conv-panel">
+        <div class="conv-panel-header">
+          <span class="conv-panel-dot dot-a"></span>
+          <span class="conv-panel-title">You (English)</span>
+          <span class="conv-panel-sub">Type what you want to say</span>
+        </div>
+        <div class="conv-input-area">
+          <textarea id="conv-input-a" placeholder="Type in English… e.g. Where is the hospital?"></textarea>
+          <div class="conv-btn-row">
+            <button class="voice-btn" id="conv-voice-a">🎤 Speak</button>
+            <button class="conv-send-btn" id="conv-send-a">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Person B — Local language speaker -->
+      <div class="conv-panel">
+        <div class="conv-panel-header">
+          <span class="conv-panel-dot dot-b"></span>
+          <span class="conv-panel-title" id="conv-b-lang-label">Japanese</span>
+          <span class="conv-panel-sub">Hand phone to them</span>
+        </div>
+        <div class="conv-input-area">
+          <textarea id="conv-input-b" placeholder="Type in Japanese…"></textarea>
+          <div class="conv-btn-row">
+            <button class="voice-btn" id="conv-voice-b">🎤 Speak</button>
+            <button class="conv-send-btn" id="conv-send-b">Send</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Conversation feed -->
+    <div id="conv-feed"></div>
+
+  </div>
 
   <!-- ── Footer ── -->
   <footer>
@@ -261,9 +286,9 @@
     <p style="margin-top:0.4rem;font-size:0.72rem;">Designed &amp; Developed by <span style="color:var(--accent);font-weight:600;">CVA</span></p>
   </footer>
 
-</div><!-- end container -->
+</div>
 
-<!-- ── Show to Local overlay ── -->
+<!-- Show to Local overlay -->
 <div id="local-overlay" class="hidden">
   <div id="local-modal">
     <div class="local-header">
@@ -274,7 +299,7 @@
   </div>
 </div>
 
-<!-- Scripts — load order matters -->
+<!-- Scripts -->
 <script src="config.js"></script>
 <script src="js/dictionary.js"></script>
 <script src="js/cache.js"></script>
@@ -284,39 +309,34 @@
 <script src="js/app.js"></script>
 
 <script>
-  // Theme toggle
+  // Theme
   const html = document.documentElement;
-  const saved = localStorage.getItem("mlt-theme") || "light";
-  applyTheme(saved);
+  applyTheme(localStorage.getItem("mlt-theme") || "light");
   function toggleTheme() {
     const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    applyTheme(next);
-    localStorage.setItem("mlt-theme", next);
+    applyTheme(next); localStorage.setItem("mlt-theme", next);
   }
-  function applyTheme(theme) {
-    html.setAttribute("data-theme", theme);
-    document.getElementById("theme-icon").textContent  = theme === "dark" ? "☀️" : "🌙";
-    document.getElementById("theme-label").textContent = theme === "dark" ? "Light" : "Dark";
+  function applyTheme(t) {
+    html.setAttribute("data-theme", t);
+    document.getElementById("theme-icon").textContent  = t==="dark" ? "☀️" : "🌙";
+    document.getElementById("theme-label").textContent = t==="dark" ? "Light" : "Dark";
   }
-
-  // Translator helpers
-  function fillAndTranslate(phrase) {
-    const input = document.getElementById("english-input");
-    input.value = phrase;
-    input.dispatchEvent(new Event("input"));
+  // Helpers
+  function fillAndTranslate(p) {
+    const i = document.getElementById("english-input");
+    i.value = p; i.dispatchEvent(new Event("input"));
     document.getElementById("translate-btn").click();
   }
   function copyCard(lang) {
-    const card   = document.getElementById("card-" + lang);
-    const native = card.querySelector(".native-script").textContent;
-    const roman  = card.querySelector(".transliteration").textContent;
-    navigator.clipboard.writeText(`${native}\n${roman}`).then(() => {
-      const btn = card.querySelector(".copy-btn");
-      btn.textContent = "Copied!"; btn.classList.add("copied");
-      setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1800);
+    const card = document.getElementById("card-"+lang);
+    const n = card.querySelector(".native-script").textContent;
+    const r = card.querySelector(".transliteration").textContent;
+    navigator.clipboard.writeText(`${n}\n${r}`).then(() => {
+      const b = card.querySelector(".copy-btn");
+      b.textContent="Copied!"; b.classList.add("copied");
+      setTimeout(()=>{ b.textContent="Copy"; b.classList.remove("copied"); },1800);
     });
   }
 </script>
-
 </body>
 </html>
