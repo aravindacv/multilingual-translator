@@ -674,3 +674,33 @@ footer a:hover { color: #a78bfa; }
   .conv-split { grid-template-columns: 1fr; }
   .conv-bubble { max-width: 95%; }
 }
+
+/* ── Tulu language additions ── */
+.pill-tu {
+  background: rgba(13,107,79,0.1);
+  border-color: rgba(13,107,79,0.3);
+  color: #0d6b4f;
+}
+[data-theme="dark"] .pill-tu { color: #4fd1c5; }
+
+.icon-tu {
+  background: rgba(13,107,79,0.12);
+  border-color: rgba(13,107,79,0.35);
+  color: #0d6b4f;
+}
+[data-theme="dark"] .icon-tu { color: #4fd1c5; }
+
+#card-tulu .native-script {
+  font-family: 'Noto Sans Kannada', sans-serif;
+  color: #0d6b4f;
+}
+[data-theme="dark"] #card-tulu .native-script { color: #4fd1c5; }
+
+#card-tulu .transliteration { color: #0a5a40; }
+[data-theme="dark"] #card-tulu .transliteration { color: #4fd1c5; }
+
+/* Tulu unavailable message */
+#card-tulu.card-unavailable .transliteration {
+  font-size: 0.72rem;
+  font-style: italic;
+}

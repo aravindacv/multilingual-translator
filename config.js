@@ -247,6 +247,7 @@ const CONFIG = {
     kannada:   "kn",
     malayalam: "ml",
     hindi:     "hi",
+    // Tulu: no API support — served entirely from local dictionary
   },
   REQUEST_TIMEOUT: 10000,
   CACHE_PREFIX: "mlt_",
