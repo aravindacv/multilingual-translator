@@ -1,11 +1,252 @@
+// /* ════════════════════════════════════════════
+//    INTELLIGENT CONVERSATION MODE
+// ════════════════════════════════════════════ */
+
+// .conv-intro {
+//   background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(74,222,128,0.07));
+//   border: 1px solid rgba(108,92,231,0.2);
+//   border-radius: 14px; padding: 1.1rem 1.4rem;
+//   margin-bottom: 1.4rem; display: flex; align-items: center; gap: 1rem;
+// }
+// .conv-intro-icon { font-size: 2rem; flex-shrink: 0; }
+// .conv-intro-text h3 { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+// .conv-intro-text p  { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+// /* Controls */
+// .conv-controls {
+//   display: flex; align-items: center; gap: 0.75rem;
+//   margin-bottom: 1.5rem; flex-wrap: wrap;
+// }
+// .conv-lang-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+// #conv-lang-selector {
+//   padding: 0.45rem 0.9rem; border-radius: 10px;
+//   border: 1px solid var(--border2); background: var(--surface);
+//   color: var(--text); font-family: 'Inter', sans-serif; font-size: 0.85rem;
+//   cursor: pointer; outline: none;
+// }
+// #conv-clear {
+//   margin-left: auto; padding: 0.4rem 0.9rem; border-radius: 8px;
+//   border: 1px solid var(--border2); background: transparent;
+//   color: var(--muted); font-family: 'Inter', sans-serif; font-size: 0.78rem; cursor: pointer; transition: all 0.15s;
+// }
+// #conv-clear:hover { border-color: #e05555; color: #e05555; }
+
+// /* ── The big intelligent mic button ── */
+// .conv-mic-wrapper {
+//   display: flex; flex-direction: column;
+//   align-items: center; gap: 0.75rem;
+//   margin: 0 auto 1.75rem;
+//   position: relative;
+// }
+
+// .conv-mic-ring {
+//   position: absolute;
+//   width: 110px; height: 110px;
+//   border-radius: 50%;
+//   border: 2px solid var(--accent);
+//   opacity: 0;
+//   transform: scale(1);
+//   transition: opacity 0.3s;
+//   pointer-events: none;
+// }
+// .conv-mic-ring.ring-active {
+//   opacity: 0.5;
+//   animation: mic-ring 1.2s ease-out infinite;
+// }
+// @keyframes mic-ring {
+//   0%   { transform: scale(1);    opacity: 0.6; }
+//   100% { transform: scale(1.6);  opacity: 0; }
+// }
+
+// #conv-mic-btn {
+//   width: 88px; height: 88px; border-radius: 50%;
+//   border: none; cursor: pointer;
+//   background: linear-gradient(135deg, var(--accent), #a78bfa);
+//   color: #fff; font-size: 2rem;
+//   display: flex; align-items: center; justify-content: center;
+//   box-shadow: 0 6px 28px var(--accent-glow);
+//   transition: transform 0.15s, box-shadow 0.15s;
+//   position: relative; z-index: 1;
+// }
+// #conv-mic-btn:hover  { transform: scale(1.06); box-shadow: 0 8px 32px var(--accent-glow); }
+// #conv-mic-btn:active { transform: scale(0.96); }
+// #conv-mic-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+// #conv-mic-btn.mic-listening {
+//   background: linear-gradient(135deg, #e05555, #f87171);
+//   box-shadow: 0 6px 28px rgba(220,38,38,0.4);
+//   animation: mic-pulse 1s ease-in-out infinite;
+// }
+// #conv-mic-btn.mic-speaking-local {
+//   background: linear-gradient(135deg, #11998e, #4fd1c5);
+//   box-shadow: 0 6px 28px rgba(17,153,142,0.4);
+// }
+// #conv-mic-btn.mic-speaking-en {
+//   background: linear-gradient(135deg, #6c5ce7, #a78bfa);
+//   box-shadow: 0 6px 28px var(--accent-glow);
+// }
+
+// @keyframes mic-pulse {
+//   0%,100% { transform: scale(1); }
+//   50%      { transform: scale(1.08); }
+// }
+
+// #conv-mic-label {
+//   font-size: 0.85rem; font-weight: 600; color: var(--muted);
+//   text-align: center; min-width: 160px;
+// }
+
+// #conv-interim {
+//   font-size: 0.88rem; color: var(--accent); font-style: italic;
+//   text-align: center; min-height: 1.4rem;
+//   max-width: 500px; margin: 0 auto;
+//   padding: 0.3rem 0.75rem;
+// }
+
+// /* How to use hint */
+// .conv-how {
+//   display: flex; gap: 1rem; margin-bottom: 1.5rem;
+//   justify-content: center; flex-wrap: wrap;
+// }
+// .conv-how-step {
+//   display: flex; align-items: center; gap: 0.5rem;
+//   background: var(--surface); border: 1px solid var(--border);
+//   border-radius: 10px; padding: 0.55rem 0.9rem;
+//   font-size: 0.78rem; color: var(--muted); box-shadow: var(--shadow);
+// }
+// .conv-how-num {
+//   width: 20px; height: 20px; border-radius: 50%;
+//   background: var(--accent); color: #fff;
+//   font-size: 0.68rem; font-weight: 700;
+//   display: flex; align-items: center; justify-content: center;
+//   flex-shrink: 0;
+// }
+
+// /* Manual type section */
+// .conv-manual {
+//   display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;
+// }
+// .conv-manual-panel {
+//   background: var(--surface); border: 1px solid var(--border);
+//   border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow);
+// }
+// .conv-manual-header {
+//   padding: 0.7rem 1rem; border-bottom: 1px solid var(--border);
+//   display: flex; align-items: center; gap: 0.5rem;
+//   background: var(--surface2);
+// }
+// .conv-panel-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+// .dot-a { background: #6c5ce7; }
+// .dot-b { background: #11998e; }
+// .conv-manual-title { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+// .conv-manual-sub   { font-size: 0.7rem; color: var(--muted); margin-left: auto; }
+// .conv-manual-body  { padding: 0.75rem; display: flex; gap: 0.5rem; }
+// .conv-manual-body textarea {
+//   flex: 1; border: 1px solid var(--border); border-radius: 8px;
+//   padding: 0.6rem 0.8rem; font-family: 'Inter', sans-serif; font-size: 0.88rem;
+//   color: var(--text); background: var(--surface2); resize: none;
+//   min-height: 52px; outline: none; transition: border-color 0.2s; line-height: 1.5;
+// }
+// .conv-manual-body textarea:focus { border-color: var(--accent); }
+// .conv-manual-body textarea::placeholder { color: var(--placeholder); }
+// .conv-manual-send {
+//   padding: 0.5rem 0.85rem; background: linear-gradient(135deg, var(--accent), #a78bfa);
+//   color: #fff; border: none; border-radius: 8px; font-size: 0.82rem; font-weight: 600;
+//   cursor: pointer; align-self: flex-end; transition: opacity 0.15s;
+// }
+// .conv-manual-send:hover { opacity: 0.9; }
+
+// /* Conversation feed */
+// #conv-feed {
+//   background: var(--surface2); border: 1px solid var(--border);
+//   border-radius: var(--radius-lg); padding: 1rem;
+//   min-height: 220px; max-height: 420px; overflow-y: auto;
+//   display: flex; flex-direction: column; gap: 1rem;
+// }
+// #conv-feed:empty::after {
+//   content: "Conversation will appear here…";
+//   color: var(--muted); font-size: 0.85rem; text-align: center;
+//   margin: auto; display: block; padding: 3rem 0;
+// }
+
+// /* Bubbles */
+// .conv-bubble {
+//   display: flex; flex-direction: column; gap: 0.3rem; max-width: 78%;
+// }
+// .bubble-from-en    { align-self: flex-start; }
+// .bubble-from-local { align-self: flex-end; }
+
+// .bubble-speaker-label {
+//   font-size: 0.7rem; font-weight: 600; color: var(--muted);
+//   padding: 0 0.3rem; letter-spacing: 0.3px;
+// }
+// .bubble-from-local .bubble-speaker-label { text-align: right; }
+
+// .bubble-original {
+//   font-size: 0.9rem; font-weight: 500; color: var(--text);
+//   padding: 0.55rem 0.9rem;
+//   background: var(--surface); border: 1px solid var(--border);
+//   border-radius: 14px 14px 14px 4px; line-height: 1.4;
+// }
+// .bubble-from-local .bubble-original {
+//   border-radius: 14px 14px 4px 14px; text-align: right;
+// }
+
+// .bubble-arrow {
+//   font-size: 0.68rem; color: var(--muted);
+//   padding: 0 0.3rem; font-style: italic;
+// }
+// .bubble-from-local .bubble-arrow { text-align: right; }
+
+// .bubble-translated {
+//   font-size: 1.25rem; line-height: 1.55;
+//   padding: 0.65rem 0.9rem; border-radius: 4px 14px 14px 14px;
+//   word-break: break-word;
+// }
+// .bubble-from-en .bubble-translated {
+//   background: rgba(108,92,231,0.1); color: var(--accent);
+//   border: 1px solid rgba(108,92,231,0.2);
+// }
+// .bubble-from-local .bubble-translated {
+//   background: rgba(17,153,142,0.1); color: #0e7b72;
+//   border: 1px solid rgba(17,153,142,0.2);
+//   border-radius: 14px 4px 14px 14px; text-align: left;
+// }
+// [data-theme="dark"] .bubble-from-en    .bubble-translated { color: #a78bfa; }
+// [data-theme="dark"] .bubble-from-local .bubble-translated { color: #4fd1c5; }
+
+// /* Typing dots */
+// .conv-dots { display: inline-flex; gap: 3px; align-items: center; padding: 4px 0; }
+// .conv-dots span {
+//   width: 6px; height: 6px; border-radius: 50%;
+//   background: var(--accent); display: inline-block;
+//   animation: dot-bounce 1.2s ease-in-out infinite;
+// }
+// .conv-dots span:nth-child(2){ animation-delay:0.2s; }
+// .conv-dots span:nth-child(3){ animation-delay:0.4s; }
+// @keyframes dot-bounce{ 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
+// #conv-voice-note {
+//   font-size:0.78rem; color:var(--muted);
+//   background:rgba(234,179,8,0.08); border:1px solid rgba(234,179,8,0.25);
+//   border-radius:8px; padding:0.5rem 0.85rem; margin-bottom:0.75rem; line-height:1.5;
+// }
+
+// @media (max-width:600px){
+//   .conv-manual{ grid-template-columns:1fr; }
+//   .conv-bubble{ max-width:92%; }
+//   #conv-mic-btn{ width:76px; height:76px; font-size:1.7rem; }
+// }
+
 const CONFIG = {
   MYMEMORY_URL: "https://api.mymemory.translated.net/get",
   SOURCE_LANG: "en",
   TARGET_LANGS: {
-    japanese: "ja",
-    arabic:   "ar",
-    kannada:  "kn",
+    japanese:  "ja",
+    arabic:    "ar",
+    kannada:   "kn",
     malayalam: "ml",
+    hindi:     "hi",
   },
   REQUEST_TIMEOUT: 10000,
   CACHE_PREFIX: "mlt_",

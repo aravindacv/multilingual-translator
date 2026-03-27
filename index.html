@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Multilingual Translator · CVA</title>
   <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/conv.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-<!-- ── Credit Banner ── -->
 <div class="credit-banner" style="position:relative;">
   Designed &amp; Developed by <span>CVA</span>
-  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light / dark">
+  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">
     <span id="theme-icon">🌙</span><span id="theme-label">Dark</span>
   </button>
 </div>
 
 <div class="container">
 
-  <!-- ── Header ── -->
   <header>
-    <div class="header-badge"><span class="header-dot"></span>4 Languages · Live Translation · Conversation Mode</div>
+    <div class="header-badge"><span class="header-dot"></span>5 Languages · Live · Intelligent Conversation</div>
     <h1>Multilingual<br>Translator</h1>
     <p>Translate · Travel · Converse — breaking language barriers in real time</p>
     <div class="lang-pills">
@@ -28,21 +29,21 @@
       <span class="lang-pill pill-ar">Arabic</span>
       <span class="lang-pill pill-kn">Kannada</span>
       <span class="lang-pill pill-ml">Malayalam</span>
+      <span class="lang-pill pill-hi">Hindi</span>
     </div>
   </header>
 
-  <!-- ── Main tabs ── -->
   <div class="main-tabs">
     <button class="main-tab tab-active" id="tab-translator">🔤 Translator</button>
     <button class="main-tab" id="tab-traveler">✈️ Phrasebook</button>
     <button class="main-tab" id="tab-conversation">💬 Conversation</button>
   </div>
 
-  <!-- ════════════ TRANSLATOR PANEL ════════════ -->
+  <!-- ═══ TRANSLATOR ═══ -->
   <div id="panel-translator">
     <div class="input-section">
       <label class="input-label" for="english-input">Enter English text</label>
-      <textarea id="english-input" placeholder="Type a word or phrase… e.g. good morning" maxlength="200" spellcheck="true" autofocus></textarea>
+      <textarea id="english-input" placeholder="Type a word or phrase… e.g. good morning, namaste" maxlength="200" spellcheck="true" autofocus></textarea>
       <div class="input-footer">
         <span id="char-count">0 / 200</span>
         <div class="btn-row">
@@ -51,7 +52,6 @@
         </div>
       </div>
     </div>
-
     <div class="hint-row">
       <span class="hint-label">Try:</span>
       <button class="hint-chip" onclick="fillAndTranslate('hello')">hello</button>
@@ -65,10 +65,8 @@
       <button class="hint-chip" onclick="fillAndTranslate('sorry')">sorry</button>
       <button class="hint-chip" onclick="fillAndTranslate('help')">help</button>
     </div>
-
     <div id="error-box" class="hidden"></div>
-    <div id="loader" class="hidden"><span class="spinner"></span> Translating into 4 languages…</div>
-
+    <div id="loader" class="hidden"><span class="spinner"></span> Translating into 5 languages…</div>
     <div id="results" class="hidden">
       <div class="results-header">
         <p class="original-label">Results for: <strong id="original-text"></strong></p>
@@ -80,20 +78,14 @@
         <div class="lang-card" id="card-japanese">
           <div class="card-banner">
             <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <linearGradient id="ja-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0533"/><stop offset="100%" stop-color="#ff4500" stop-opacity="0.6"/></linearGradient>
-                <linearGradient id="fuji-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="35%" stop-color="#c8d8f0"/><stop offset="100%" stop-color="#7a8fa6"/></linearGradient>
-              </defs>
-              <rect width="320" height="130" fill="url(#ja-sky)"/>
-              <circle cx="160" cy="55" r="30" fill="#ff6b35" opacity="0.9"/>
+              <defs><linearGradient id="ja-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0533"/><stop offset="100%" stop-color="#ff4500" stop-opacity="0.6"/></linearGradient><linearGradient id="fuji-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="35%" stop-color="#c8d8f0"/><stop offset="100%" stop-color="#7a8fa6"/></linearGradient></defs>
+              <rect width="320" height="130" fill="url(#ja-sky)"/><circle cx="160" cy="55" r="30" fill="#ff6b35" opacity="0.9"/>
               <polygon points="85,105 160,35 235,105" fill="url(#fuji-grad)"/>
               <polygon points="140,55 160,35 180,55 170,58 160,50 150,58" fill="white" opacity="0.95"/>
               <rect x="0" y="105" width="320" height="25" fill="#1a0d2e"/>
               <rect x="145" y="70" width="4" height="32" fill="#e63946"/><rect x="171" y="70" width="4" height="32" fill="#e63946"/>
-              <path d="M140 68 Q160 62 180 68" fill="none" stroke="#e63946" stroke-width="5"/>
-              <rect x="140" y="68" width="40" height="5" rx="1" fill="#e63946"/>
-              <circle cx="42" cy="82" r="12" fill="#ff85a1" opacity="0.8"/>
-              <circle cx="278" cy="82" r="12" fill="#ff85a1" opacity="0.8"/>
+              <path d="M140 68 Q160 62 180 68" fill="none" stroke="#e63946" stroke-width="5"/><rect x="140" y="68" width="40" height="5" rx="1" fill="#e63946"/>
+              <circle cx="42" cy="82" r="12" fill="#ff85a1" opacity="0.8"/><circle cx="278" cy="82" r="12" fill="#ff85a1" opacity="0.8"/>
             </svg>
             <div class="banner-overlay"></div>
           </div>
@@ -113,16 +105,11 @@
               <rect width="320" height="130" fill="url(#ar-sky)"/>
               <circle cx="30" cy="15" r="1.2" fill="white" opacity="0.9"/><circle cx="120" cy="20" r="1.5" fill="white" opacity="0.95"/><circle cx="280" cy="14" r="1.1" fill="white" opacity="0.85"/>
               <circle cx="260" cy="25" r="14" fill="#f5d76e" opacity="0.95"/><circle cx="267" cy="20" r="11" fill="#0d1b3e"/>
-              <ellipse cx="80" cy="115" rx="90" ry="20" fill="#c8a96e"/>
-              <ellipse cx="160" cy="112" rx="80" ry="15" fill="#c8a96e" opacity="0.9"/>
-              <ellipse cx="160" cy="82" rx="28" ry="22" fill="#0d2a1f"/>
-              <rect x="132" y="82" width="56" height="28" fill="#0d2a1f"/>
-              <rect x="112" y="68" width="10" height="42" fill="#0d2a1f"/>
-              <polygon points="112,68 117,55 122,68" fill="#0d2a1f"/>
-              <rect x="198" y="68" width="10" height="42" fill="#0d2a1f"/>
-              <polygon points="198,68 203,55 208,68" fill="#0d2a1f"/>
-              <line x1="160" y1="60" x2="160" y2="50" stroke="#f5d76e" stroke-width="1.5"/>
-              <polygon points="157,52 160,44 163,52" fill="#f5d76e"/>
+              <ellipse cx="80" cy="115" rx="90" ry="20" fill="#c8a96e"/><ellipse cx="160" cy="112" rx="80" ry="15" fill="#c8a96e" opacity="0.9"/>
+              <ellipse cx="160" cy="82" rx="28" ry="22" fill="#0d2a1f"/><rect x="132" y="82" width="56" height="28" fill="#0d2a1f"/>
+              <rect x="112" y="68" width="10" height="42" fill="#0d2a1f"/><polygon points="112,68 117,55 122,68" fill="#0d2a1f"/>
+              <rect x="198" y="68" width="10" height="42" fill="#0d2a1f"/><polygon points="198,68 203,55 208,68" fill="#0d2a1f"/>
+              <line x1="160" y1="60" x2="160" y2="50" stroke="#f5d76e" stroke-width="1.5"/><polygon points="157,52 160,44 163,52" fill="#f5d76e"/>
             </svg>
             <div class="banner-overlay"></div>
           </div>
@@ -141,21 +128,12 @@
               <defs><linearGradient id="kn-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d0a3a"/><stop offset="100%" stop-color="#6b1f3e"/></linearGradient></defs>
               <rect width="320" height="130" fill="url(#kn-sky)"/>
               <rect x="0" y="108" width="320" height="22" fill="#5c2e0a"/>
-              <rect x="118" y="88" width="84" height="20" fill="#7d3c12" rx="2"/>
-              <rect x="124" y="75" width="72" height="15" fill="#8e4418" rx="1"/>
-              <rect x="131" y="63" width="58" height="14" fill="#9b4e1e" rx="1"/>
-              <rect x="138" y="53" width="44" height="12" fill="#a85522" rx="1"/>
-              <rect x="145" y="44" width="30" height="11" fill="#b55e26" rx="1"/>
-              <rect x="151" y="36" width="18" height="10" fill="#c0682a" rx="1"/>
-              <ellipse cx="160" cy="34" rx="6" ry="4" fill="#f5d76e"/>
-              <line x1="160" y1="30" x2="160" y2="22" stroke="#f5d76e" stroke-width="2"/>
-              <circle cx="160" cy="20" r="4" fill="#f5d76e"/>
-              <ellipse cx="55" cy="112" rx="18" ry="6" fill="#e91e63" opacity="0.7"/>
-              <ellipse cx="55" cy="109" rx="14" ry="5" fill="#f06292" opacity="0.8"/>
-              <circle cx="55" cy="104" r="4" fill="#ffd54f"/>
-              <ellipse cx="265" cy="112" rx="18" ry="6" fill="#e91e63" opacity="0.7"/>
-              <ellipse cx="265" cy="109" rx="14" ry="5" fill="#f06292" opacity="0.8"/>
-              <circle cx="265" cy="104" r="4" fill="#ffd54f"/>
+              <rect x="118" y="88" width="84" height="20" fill="#7d3c12" rx="2"/><rect x="124" y="75" width="72" height="15" fill="#8e4418" rx="1"/>
+              <rect x="131" y="63" width="58" height="14" fill="#9b4e1e" rx="1"/><rect x="138" y="53" width="44" height="12" fill="#a85522" rx="1"/>
+              <rect x="145" y="44" width="30" height="11" fill="#b55e26" rx="1"/><rect x="151" y="36" width="18" height="10" fill="#c0682a" rx="1"/>
+              <ellipse cx="160" cy="34" rx="6" ry="4" fill="#f5d76e"/><line x1="160" y1="30" x2="160" y2="22" stroke="#f5d76e" stroke-width="2"/><circle cx="160" cy="20" r="4" fill="#f5d76e"/>
+              <ellipse cx="55" cy="112" rx="18" ry="6" fill="#e91e63" opacity="0.7"/><ellipse cx="55" cy="109" rx="14" ry="5" fill="#f06292" opacity="0.8"/><circle cx="55" cy="104" r="4" fill="#ffd54f"/>
+              <ellipse cx="265" cy="112" rx="18" ry="6" fill="#e91e63" opacity="0.7"/><ellipse cx="265" cy="109" rx="14" ry="5" fill="#f06292" opacity="0.8"/><circle cx="265" cy="104" r="4" fill="#ffd54f"/>
             </svg>
             <div class="banner-overlay"></div>
           </div>
@@ -171,12 +149,8 @@
         <div class="lang-card" id="card-malayalam">
           <div class="card-banner">
             <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <linearGradient id="ml-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0c2340"/><stop offset="60%" stop-color="#1a5276"/><stop offset="100%" stop-color="#1a7a6e"/></linearGradient>
-                <linearGradient id="ml-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a6b82"/><stop offset="100%" stop-color="#0d4a5c"/></linearGradient>
-              </defs>
-              <rect width="320" height="130" fill="url(#ml-sky)"/>
-              <rect x="0" y="90" width="320" height="40" fill="url(#ml-water)"/>
+              <defs><linearGradient id="ml-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0c2340"/><stop offset="60%" stop-color="#1a5276"/><stop offset="100%" stop-color="#1a7a6e"/></linearGradient><linearGradient id="ml-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a6b82"/><stop offset="100%" stop-color="#0d4a5c"/></linearGradient></defs>
+              <rect width="320" height="130" fill="url(#ml-sky)"/><rect x="0" y="90" width="320" height="40" fill="url(#ml-water)"/>
               <circle cx="160" cy="62" r="22" fill="#f39c12" opacity="0.85"/>
               <path d="M45 125 Q48 100 50 75 Q52 55 55 40" stroke="#2d4a1e" stroke-width="5" fill="none" stroke-linecap="round"/>
               <path d="M55 40 Q35 30 20 35" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
@@ -198,17 +172,111 @@
           </div>
         </div>
 
+        <!-- Hindi — Taj Mahal illustration -->
+        <div class="lang-card" id="card-hindi">
+          <div class="card-banner">
+            <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="hi-sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0a1628"/>
+                  <stop offset="60%" stop-color="#1a2a5e"/>
+                  <stop offset="100%" stop-color="#f97316" stop-opacity="0.5"/>
+                </linearGradient>
+                <linearGradient id="hi-water" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1e3a5f"/>
+                  <stop offset="100%" stop-color="#0d2035"/>
+                </linearGradient>
+              </defs>
+              <!-- Sky -->
+              <rect width="320" height="130" fill="url(#hi-sky)"/>
+              <!-- Stars -->
+              <circle cx="20"  cy="12" r="0.9" fill="white" opacity="0.8"/>
+              <circle cx="55"  cy="8"  r="1.1" fill="white" opacity="0.9"/>
+              <circle cx="90"  cy="18" r="0.8" fill="white" opacity="0.7"/>
+              <circle cx="230" cy="10" r="1.0" fill="white" opacity="0.85"/>
+              <circle cx="270" cy="16" r="0.9" fill="white" opacity="0.8"/>
+              <circle cx="305" cy="8"  r="1.1" fill="white" opacity="0.75"/>
+              <!-- Moon -->
+              <circle cx="280" cy="28" r="12" fill="#f5d76e" opacity="0.9"/>
+              <circle cx="286" cy="24" r="9"  fill="#0a1628"/>
+              <!-- Reflecting pool -->
+              <rect x="90" y="100" width="140" height="30" fill="url(#hi-water)"/>
+              <!-- Pool reflection of dome (subtle) -->
+              <ellipse cx="160" cy="108" rx="18" ry="6" fill="#c8a87a" opacity="0.2"/>
+              <!-- Ground -->
+              <rect x="0"  y="108" width="90"  height="22" fill="#1a1a0a"/>
+              <rect x="230" y="108" width="90" height="22" fill="#1a1a0a"/>
+              <!-- Taj Mahal base platform -->
+              <rect x="80" y="92" width="160" height="10" rx="1" fill="#c8b89a"/>
+              <rect x="90" y="85" width="140" height="9"  rx="1" fill="#d4c4a8"/>
+              <!-- Side minarets (4) -->
+              <rect x="88"  y="52" width="7" height="35" rx="1" fill="#c8b89a"/>
+              <ellipse cx="91"  cy="52" rx="5" ry="8"  fill="#d4c4a8"/>
+              <line x1="91"  y1="44" x2="91"  y2="38" stroke="#e8d8bc" stroke-width="1"/>
+              <circle cx="91"  cy="38" r="2"  fill="#f5d76e"/>
+              <rect x="225" y="52" width="7" height="35" rx="1" fill="#c8b89a"/>
+              <ellipse cx="228" cy="52" rx="5" ry="8"  fill="#d4c4a8"/>
+              <line x1="228" y1="44" x2="228" y2="38" stroke="#e8d8bc" stroke-width="1"/>
+              <circle cx="228" cy="38" r="2"  fill="#f5d76e"/>
+              <!-- Inner minarets -->
+              <rect x="108" y="60" width="6" height="26" rx="1" fill="#d4c4a8"/>
+              <ellipse cx="111" cy="60" rx="4" ry="6" fill="#ddd0b4"/>
+              <line x1="111" y1="54" x2="111" y2="49" stroke="#e8d8bc" stroke-width="1"/>
+              <circle cx="111" cy="49" r="1.5" fill="#f5d76e"/>
+              <rect x="206" y="60" width="6" height="26" rx="1" fill="#d4c4a8"/>
+              <ellipse cx="209" cy="60" rx="4" ry="6" fill="#ddd0b4"/>
+              <line x1="209" y1="54" x2="209" y2="49" stroke="#e8d8bc" stroke-width="1"/>
+              <circle cx="209" cy="49" r="1.5" fill="#f5d76e"/>
+              <!-- Main building body -->
+              <rect x="120" y="65" width="80" height="27" rx="2" fill="#e0d0b4"/>
+              <!-- Central arch -->
+              <path d="M148 92 L148 75 Q160 65 172 75 L172 92 Z" fill="#0a1628" opacity="0.6"/>
+              <!-- Side arches -->
+              <path d="M124 92 L124 80 Q131 74 138 80 L138 92 Z" fill="#0a1628" opacity="0.4"/>
+              <path d="M182 92 L182 80 Q189 74 196 80 L196 92 Z" fill="#0a1628" opacity="0.4"/>
+              <!-- Main dome -->
+              <ellipse cx="160" cy="65" rx="22" ry="16" fill="#d4c4a8"/>
+              <ellipse cx="160" cy="65" rx="18" ry="13" fill="#ddd0b4"/>
+              <!-- Finial on dome -->
+              <line x1="160" y1="49" x2="160" y2="40" stroke="#c8b89a" stroke-width="1.5"/>
+              <circle cx="160" cy="40" r="2.5" fill="#f5d76e"/>
+              <!-- Small domes on corners -->
+              <ellipse cx="124" cy="68" rx="8" ry="6" fill="#d4c4a8"/>
+              <ellipse cx="196" cy="68" rx="8" ry="6" fill="#d4c4a8"/>
+              <!-- Reflection in pool -->
+              <ellipse cx="160" cy="114" rx="20" ry="5" fill="#d4c4a8" opacity="0.15"/>
+              <!-- Saffron/orange glow at horizon -->
+              <rect x="0" y="118" width="320" height="12" fill="#f97316" opacity="0.1"/>
+              <!-- Devanagari watermark -->
+              <text x="8" y="105" font-family="serif" font-size="26" fill="white" opacity="0.06" font-weight="bold">ह</text>
+            </svg>
+            <div class="banner-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="lang-header">
+              <div class="lang-icon icon-hi">HI</div>
+              <span class="lang-name">Hindi</span>
+              <span class="lang-code">HI</span>
+            </div>
+            <p class="script-label">Native script (Devanagari)</p>
+            <p class="native-script">—</p>
+            <p class="script-label">Transliteration (Roman)</p>
+            <p class="transliteration">—</p>
+            <button class="copy-btn" onclick="copyCard('hindi')">Copy</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- ════════════ TRAVELER PANEL ════════════ -->
+  <!-- ═══ TRAVELER ═══ -->
   <div id="panel-traveler" class="hidden">
     <div class="traveler-intro">
       <div class="traveler-intro-icon">✈️</div>
       <div class="traveler-intro-text">
         <h3>Traveler's Phrasebook</h3>
-        <p>Pick a situation. Tap <strong>Show to Local</strong> to display the native script fullscreen — hand your phone to them and they read their own language.</p>
+        <p>Pick a situation. Tap <strong>Show to Local</strong> to display fullscreen native script — hand your phone to them.</p>
       </div>
     </div>
     <div id="situation-bar"></div>
@@ -216,71 +284,46 @@
     <div id="phrase-list"></div>
   </div>
 
-  <!-- ════════════ CONVERSATION MODE PANEL ════════════ -->
+  <!-- ═══ CONVERSATION ═══ -->
   <div id="panel-conversation" class="hidden">
-
     <div class="conv-intro">
-      <div class="conv-intro-icon">💬</div>
+      <div class="conv-intro-icon">🤝</div>
       <div class="conv-intro-text">
-        <h3>Face-to-Face Conversation Mode</h3>
-        <p>One screen. Two people. No interpreter. You type English at the top — they read their language. They type back — you read English. Tap 🎤 to speak instead of type.</p>
+        <h3>Intelligent Two-Way Interpreter</h3>
+        <p>Tap the mic — speak in <strong>any language</strong>. Auto-detects who is speaking, translates instantly in the right direction, speaks aloud. No buttons to switch. No interpreter needed.</p>
       </div>
     </div>
-
-    <!-- Controls -->
     <div class="conv-controls">
       <span class="conv-lang-label">Their language:</span>
       <select id="conv-lang-selector"></select>
       <button id="conv-clear">Clear chat</button>
     </div>
-
-    <div id="conv-voice-note" class="hidden">
-      Voice input is available in Chrome on Android/desktop. On other browsers, type instead.
+    <div class="conv-how">
+      <div class="conv-how-step"><span class="conv-how-num">1</span> You tap mic &amp; speak English</div>
+      <div class="conv-how-step"><span class="conv-how-num">2</span> They hear their language</div>
+      <div class="conv-how-step"><span class="conv-how-num">3</span> They tap mic &amp; reply</div>
+      <div class="conv-how-step"><span class="conv-how-num">4</span> You hear English back</div>
     </div>
-
-    <!-- Split input panels -->
-    <div class="conv-split">
-
-      <!-- Person A — English speaker -->
-      <div class="conv-panel">
-        <div class="conv-panel-header">
-          <span class="conv-panel-dot dot-a"></span>
-          <span class="conv-panel-title">You (English)</span>
-          <span class="conv-panel-sub">Type what you want to say</span>
-        </div>
-        <div class="conv-input-area">
-          <textarea id="conv-input-a" placeholder="Type in English… e.g. Where is the hospital?"></textarea>
-          <div class="conv-btn-row">
-            <button class="voice-btn" id="conv-voice-a">🎤 Speak</button>
-            <button class="conv-send-btn" id="conv-send-a">Send</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Person B — Local language speaker -->
-      <div class="conv-panel">
-        <div class="conv-panel-header">
-          <span class="conv-panel-dot dot-b"></span>
-          <span class="conv-panel-title" id="conv-b-lang-label">Japanese</span>
-          <span class="conv-panel-sub">Hand phone to them</span>
-        </div>
-        <div class="conv-input-area">
-          <textarea id="conv-input-b" placeholder="Type in Japanese…"></textarea>
-          <div class="conv-btn-row">
-            <button class="voice-btn" id="conv-voice-b">🎤 Speak</button>
-            <button class="conv-send-btn" id="conv-send-b">Send</button>
-          </div>
-        </div>
-      </div>
-
+    <div class="conv-mic-wrapper">
+      <div class="conv-mic-ring" id="conv-mic-ring"></div>
+      <button id="conv-mic-btn">🎤</button>
+      <div id="conv-mic-label">Tap to Speak</div>
+      <div id="conv-interim"></div>
     </div>
-
-    <!-- Conversation feed -->
+    <div id="conv-voice-note" class="hidden">Voice requires Chrome. Use text inputs below on other browsers.</div>
+    <div class="conv-manual">
+      <div class="conv-manual-panel">
+        <div class="conv-manual-header"><span class="conv-panel-dot dot-a"></span><span class="conv-manual-title">🇬🇧 You — English</span><span class="conv-manual-sub">or type here</span></div>
+        <div class="conv-manual-body"><textarea id="conv-input-en" placeholder="Type in English…"></textarea><button class="conv-manual-send" id="conv-send-en">Send</button></div>
+      </div>
+      <div class="conv-manual-panel">
+        <div class="conv-manual-header"><span class="conv-panel-dot dot-b"></span><span class="conv-manual-title"><span id="conv-local-flag">🇮🇳</span> <span id="conv-local-label">Hindi</span></span><span class="conv-manual-sub">hand phone to them</span></div>
+        <div class="conv-manual-body"><textarea id="conv-input-local" placeholder="Type in Hindi…"></textarea><button class="conv-manual-send" id="conv-send-local">Send</button></div>
+      </div>
+    </div>
     <div id="conv-feed"></div>
-
   </div>
 
-  <!-- ── Footer ── -->
   <footer>
     <p>Powered by <a href="https://mymemory.translated.net" target="_blank">MyMemory API</a> &middot; Fonts by <a href="https://fonts.google.com/noto" target="_blank">Google Noto</a> &middot; 100% free</p>
     <p style="margin-top:0.4rem;font-size:0.72rem;">Designed &amp; Developed by <span style="color:var(--accent);font-weight:600;">CVA</span></p>
@@ -288,7 +331,6 @@
 
 </div>
 
-<!-- Show to Local overlay -->
 <div id="local-overlay" class="hidden">
   <div id="local-modal">
     <div class="local-header">
@@ -299,7 +341,6 @@
   </div>
 </div>
 
-<!-- Scripts -->
 <script src="config.js"></script>
 <script src="js/dictionary.js"></script>
 <script src="js/cache.js"></script>
@@ -307,36 +348,13 @@
 <script src="js/transliterate.js"></script>
 <script src="js/phrases.js"></script>
 <script src="js/app.js"></script>
-
 <script>
-  // Theme
-  const html = document.documentElement;
-  applyTheme(localStorage.getItem("mlt-theme") || "light");
-  function toggleTheme() {
-    const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    applyTheme(next); localStorage.setItem("mlt-theme", next);
-  }
-  function applyTheme(t) {
-    html.setAttribute("data-theme", t);
-    document.getElementById("theme-icon").textContent  = t==="dark" ? "☀️" : "🌙";
-    document.getElementById("theme-label").textContent = t==="dark" ? "Light" : "Dark";
-  }
-  // Helpers
-  function fillAndTranslate(p) {
-    const i = document.getElementById("english-input");
-    i.value = p; i.dispatchEvent(new Event("input"));
-    document.getElementById("translate-btn").click();
-  }
-  function copyCard(lang) {
-    const card = document.getElementById("card-"+lang);
-    const n = card.querySelector(".native-script").textContent;
-    const r = card.querySelector(".transliteration").textContent;
-    navigator.clipboard.writeText(`${n}\n${r}`).then(() => {
-      const b = card.querySelector(".copy-btn");
-      b.textContent="Copied!"; b.classList.add("copied");
-      setTimeout(()=>{ b.textContent="Copy"; b.classList.remove("copied"); },1800);
-    });
-  }
+  const html=document.documentElement;
+  applyTheme(localStorage.getItem("mlt-theme")||"light");
+  function toggleTheme(){const n=html.getAttribute("data-theme")==="dark"?"light":"dark";applyTheme(n);localStorage.setItem("mlt-theme",n);}
+  function applyTheme(t){html.setAttribute("data-theme",t);document.getElementById("theme-icon").textContent=t==="dark"?"☀️":"🌙";document.getElementById("theme-label").textContent=t==="dark"?"Light":"Dark";}
+  function fillAndTranslate(p){const i=document.getElementById("english-input");i.value=p;i.dispatchEvent(new Event("input"));document.getElementById("translate-btn").click();}
+  function copyCard(lang){const card=document.getElementById("card-"+lang);const n=card.querySelector(".native-script").textContent;const r=card.querySelector(".transliteration").textContent;navigator.clipboard.writeText(`${n}\n${r}`).then(()=>{const b=card.querySelector(".copy-btn");b.textContent="Copied!";b.classList.add("copied");setTimeout(()=>{b.textContent="Copy";b.classList.remove("copied");},1800);});}
 </script>
 </body>
 </html>
