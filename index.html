@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Traveler's Phrasebook-AI</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ── Credit Banner ── -->
+<div class="credit-banner" style="position:relative;">
+  Designed &amp; Developed by <span>CVA</span>
+  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light / dark mode">
+    <span id="theme-icon">🌙</span>
+    <span id="theme-label">Dark</span>
+  </button>
+</div>
+
+<div class="container">
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-badge"><span class="header-dot"></span>4 Languages · Live Translation</div>
+    <h1>Multilingual<br>Translator</h1>
+    <p>Earn Skill Not Degree</p>
+    <div class="lang-pills">
+      <span class="lang-pill pill-ja">Japanese</span>
+      <span class="lang-pill pill-ar">Arabic</span>
+      <span class="lang-pill pill-kn">Kannada</span>
+      <span class="lang-pill pill-ml">Malayalam</span>
+    </div>
+  </header>
+
+  <!-- ── Main tabs ── -->
+  <div class="main-tabs">
+    <button class="main-tab tab-active" id="tab-translator">
+      <span>🔤</span> Translator
+    </button>
+    <button class="main-tab" id="tab-traveler">
+      <span>✈️</span> Traveler Phrasebook
+    </button>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       TRANSLATOR PANEL
+  ════════════════════════════════════════════ -->
+  <div id="panel-translator">
+    <div class="input-section">
+      <label class="input-label" for="english-input">Enter English text</label>
+      <textarea id="english-input"
+        placeholder="Type a word or phrase… e.g. good morning, my name is aravinda"
+        maxlength="200" spellcheck="true" autofocus></textarea>
+      <div class="input-footer">
+        <span id="char-count">0 / 200</span>
+        <div class="btn-row">
+          <button id="clear-btn">Clear</button>
+          <button id="translate-btn">Translate</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint-row">
+      <span class="hint-label">Try:</span>
+      <button class="hint-chip" onclick="fillAndTranslate('hello')">hello</button>
+      <button class="hint-chip" onclick="fillAndTranslate('good morning')">good morning</button>
+      <button class="hint-chip" onclick="fillAndTranslate('thank you')">thank you</button>
+      <button class="hint-chip" onclick="fillAndTranslate('goodbye')">goodbye</button>
+      <button class="hint-chip" onclick="fillAndTranslate('i love you')">i love you</button>
+      <button class="hint-chip" onclick="fillAndTranslate('water')">water</button>
+      <button class="hint-chip" onclick="fillAndTranslate('welcome')">welcome</button>
+      <button class="hint-chip" onclick="fillAndTranslate('beautiful')">beautiful</button>
+      <button class="hint-chip" onclick="fillAndTranslate('sorry')">sorry</button>
+      <button class="hint-chip" onclick="fillAndTranslate('help')">help</button>
+    </div>
+
+    <div id="error-box" class="hidden"></div>
+    <div id="loader" class="hidden"><span class="spinner"></span> Translating into 4 languages…</div>
+
+    <div id="results" class="hidden">
+      <div class="results-header">
+        <p class="original-label">Results for: <strong id="original-text"></strong></p>
+        <span id="source-badge" class="source-badge"></span>
+      </div>
+      <div class="cards-grid">
+
+        <!-- Japanese -->
+        <div class="lang-card" id="card-japanese">
+          <div class="card-banner">
+            <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="ja-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0533"/><stop offset="100%" stop-color="#ff4500" stop-opacity="0.6"/></linearGradient>
+                <linearGradient id="fuji-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="35%" stop-color="#c8d8f0"/><stop offset="100%" stop-color="#7a8fa6"/></linearGradient>
+              </defs>
+              <rect width="320" height="130" fill="url(#ja-sky)"/>
+              <circle cx="160" cy="55" r="30" fill="#ff6b35" opacity="0.9"/>
+              <polygon points="85,105 160,35 235,105" fill="url(#fuji-grad)"/>
+              <polygon points="140,55 160,35 180,55 170,58 160,50 150,58" fill="white" opacity="0.95"/>
+              <rect x="0" y="105" width="320" height="25" fill="#1a0d2e"/>
+              <rect x="145" y="70" width="4" height="32" fill="#e63946" opacity="0.9"/>
+              <rect x="171" y="70" width="4" height="32" fill="#e63946" opacity="0.9"/>
+              <path d="M140 68 Q160 62 180 68" fill="none" stroke="#e63946" stroke-width="5" opacity="0.9"/>
+              <rect x="140" y="68" width="40" height="5" rx="1" fill="#e63946"/>
+              <circle cx="42" cy="82" r="12" fill="#ff85a1" opacity="0.8"/>
+              <circle cx="278" cy="82" r="12" fill="#ff85a1" opacity="0.8"/>
+            </svg>
+            <div class="banner-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="lang-header">
+              <div class="lang-icon icon-ja">JP</div>
+              <span class="lang-name">Japanese</span>
+              <span class="lang-code">JA</span>
+            </div>
+            <p class="script-label">Native script</p>
+            <p class="native-script">—</p>
+            <p class="script-label">Transliteration (Romaji)</p>
+            <p class="transliteration">—</p>
+            <button class="copy-btn" onclick="copyCard('japanese')">Copy</button>
+          </div>
+        </div>
+
+        <!-- Arabic -->
+        <div class="lang-card" id="card-arabic">
+          <div class="card-banner">
+            <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs><linearGradient id="ar-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d1b3e"/><stop offset="100%" stop-color="#1a4a3a"/></linearGradient></defs>
+              <rect width="320" height="130" fill="url(#ar-sky)"/>
+              <circle cx="30" cy="15" r="1.2" fill="white" opacity="0.9"/><circle cx="120" cy="20" r="1.5" fill="white" opacity="0.95"/><circle cx="280" cy="14" r="1.1" fill="white" opacity="0.85"/>
+              <circle cx="260" cy="25" r="14" fill="#f5d76e" opacity="0.95"/>
+              <circle cx="267" cy="20" r="11" fill="#0d1b3e"/>
+              <ellipse cx="80" cy="115" rx="90" ry="20" fill="#c8a96e"/>
+              <ellipse cx="160" cy="112" rx="80" ry="15" fill="#c8a96e" opacity="0.9"/>
+              <ellipse cx="160" cy="82" rx="28" ry="22" fill="#0d2a1f"/>
+              <rect x="132" y="82" width="56" height="28" fill="#0d2a1f"/>
+              <rect x="112" y="68" width="10" height="42" fill="#0d2a1f"/>
+              <polygon points="112,68 117,55 122,68" fill="#0d2a1f"/>
+              <rect x="198" y="68" width="10" height="42" fill="#0d2a1f"/>
+              <polygon points="198,68 203,55 208,68" fill="#0d2a1f"/>
+              <line x1="160" y1="60" x2="160" y2="50" stroke="#f5d76e" stroke-width="1.5"/>
+              <polygon points="157,52 160,44 163,52" fill="#f5d76e"/>
+            </svg>
+            <div class="banner-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="lang-header">
+              <div class="lang-icon icon-ar">AR</div>
+              <span class="lang-name">Arabic</span>
+              <span class="lang-code">AR</span>
+            </div>
+            <p class="script-label">Native script</p>
+            <p class="native-script">—</p>
+            <p class="script-label">Transliteration (Latin)</p>
+            <p class="transliteration">—</p>
+            <button class="copy-btn" onclick="copyCard('arabic')">Copy</button>
+          </div>
+        </div>
+
+        <!-- Kannada -->
+        <div class="lang-card" id="card-kannada">
+          <div class="card-banner">
+            <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs><linearGradient id="kn-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d0a3a"/><stop offset="100%" stop-color="#6b1f3e"/></linearGradient></defs>
+              <rect width="320" height="130" fill="url(#kn-sky)"/>
+              <rect x="0" y="108" width="320" height="22" fill="#5c2e0a"/>
+              <rect x="118" y="88" width="84" height="20" fill="#7d3c12" rx="2"/>
+              <rect x="124" y="75" width="72" height="15" fill="#8e4418" rx="1"/>
+              <rect x="131" y="63" width="58" height="14" fill="#9b4e1e" rx="1"/>
+              <rect x="138" y="53" width="44" height="12" fill="#a85522" rx="1"/>
+              <rect x="145" y="44" width="30" height="11" fill="#b55e26" rx="1"/>
+              <rect x="151" y="36" width="18" height="10" fill="#c0682a" rx="1"/>
+              <ellipse cx="160" cy="34" rx="6" ry="4" fill="#f5d76e"/>
+              <line x1="160" y1="30" x2="160" y2="22" stroke="#f5d76e" stroke-width="2"/>
+              <circle cx="160" cy="20" r="4" fill="#f5d76e"/>
+              <ellipse cx="55" cy="112" rx="18" ry="6" fill="#e91e63" opacity="0.7"/>
+              <ellipse cx="55" cy="109" rx="14" ry="5" fill="#f06292" opacity="0.8"/>
+              <circle cx="55" cy="104" r="4" fill="#ffd54f"/>
+              <ellipse cx="265" cy="112" rx="18" ry="6" fill="#e91e63" opacity="0.7"/>
+              <ellipse cx="265" cy="109" rx="14" ry="5" fill="#f06292" opacity="0.8"/>
+              <circle cx="265" cy="104" r="4" fill="#ffd54f"/>
+            </svg>
+            <div class="banner-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="lang-header">
+              <div class="lang-icon icon-kn">KN</div>
+              <span class="lang-name">Kannada</span>
+              <span class="lang-code">KN</span>
+            </div>
+            <p class="script-label">Native script</p>
+            <p class="native-script">—</p>
+            <p class="script-label">Transliteration (IAST)</p>
+            <p class="transliteration">—</p>
+            <button class="copy-btn" onclick="copyCard('kannada')">Copy</button>
+          </div>
+        </div>
+
+        <!-- Malayalam -->
+        <div class="lang-card" id="card-malayalam">
+          <div class="card-banner">
+            <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="ml-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0c2340"/><stop offset="60%" stop-color="#1a5276"/><stop offset="100%" stop-color="#1a7a6e"/></linearGradient>
+                <linearGradient id="ml-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a6b82"/><stop offset="100%" stop-color="#0d4a5c"/></linearGradient>
+              </defs>
+              <rect width="320" height="130" fill="url(#ml-sky)"/>
+              <rect x="0" y="90" width="320" height="40" fill="url(#ml-water)"/>
+              <circle cx="160" cy="62" r="22" fill="#f39c12" opacity="0.85"/>
+              <path d="M45 125 Q48 100 50 75 Q52 55 55 40" stroke="#2d4a1e" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M55 40 Q35 30 20 35" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M55 40 Q65 28 72 15" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M275 125 Q272 100 270 75 Q268 55 265 40" stroke="#2d4a1e" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M265 40 Q285 30 300 35" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M265 40 Q255 28 248 15" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M100 100 Q160 94 220 100 L215 110 Q160 115 105 110 Z" fill="#4a2800"/>
+              <line x1="160" y1="110" x2="160" y2="80" stroke="#8b5e2a" stroke-width="2"/>
+              <path d="M160 82 Q180 88 175 100 Q165 105 160 110" fill="#f5e6c8" opacity="0.85"/>
+            </svg>
+            <div class="banner-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="lang-header">
+              <div class="lang-icon icon-ml">ML</div>
+              <span class="lang-name">Malayalam</span>
+              <span class="lang-code">ML</span>
+            </div>
+            <p class="script-label">Native script</p>
+            <p class="native-script">—</p>
+            <p class="script-label">Transliteration (Roman)</p>
+            <p class="transliteration">—</p>
+            <button class="copy-btn" onclick="copyCard('malayalam')">Copy</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- end panel-translator -->
+
+  <!-- ════════════════════════════════════════════
+       TRAVELER PHRASEBOOK PANEL
+  ════════════════════════════════════════════ -->
+  <div id="panel-traveler" class="hidden">
+
+    <div class="traveler-intro">
+      <div class="traveler-intro-icon">✈️</div>
+      <div class="traveler-intro-text">
+        <h3>Traveler's Phrasebook</h3>
+        <p>Pick a situation below. Tap any phrase to see it in all 4 scripts. Hit <strong>Show to Local</strong> to display it full-screen so they can read it directly.</p>
+      </div>
+    </div>
+
+    <div id="situation-bar"></div>
+    <div id="traveler-lang-bar"></div>
+    <div id="phrase-list"></div>
+
+  </div><!-- end panel-traveler -->
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>Powered by <a href="https://mymemory.translated.net" target="_blank">MyMemory API</a> &middot; Fonts by <a href="https://fonts.google.com/noto" target="_blank">Google Noto</a> &middot; 100% free</p>
+    <p style="margin-top:0.4rem;font-size:0.72rem;">Designed &amp; Developed by <span style="color:var(--accent);font-weight:600;">CVA</span></p>
+  </footer>
+
+</div><!-- end container -->
+
+<!-- ── Show to Local overlay ── -->
+<div id="local-overlay" class="hidden">
+  <div id="local-modal">
+    <div class="local-header">
+      <div class="local-header-label"><span class="local-header-dot"></span> Show to Local</div>
+      <button id="local-close">✕</button>
+    </div>
+    <div id="local-content"></div>
+  </div>
+</div>
+
+<!-- Scripts — load order matters -->
+<script src="config.js"></script>
+<script src="js/dictionary.js"></script>
+<script src="js/cache.js"></script>
+<script src="js/translator.js"></script>
+<script src="js/transliterate.js"></script>
+<script src="js/phrases.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+  // Theme toggle
+  const html = document.documentElement;
+  const saved = localStorage.getItem("mlt-theme") || "light";
+  applyTheme(saved);
+  function toggleTheme() {
+    const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+    localStorage.setItem("mlt-theme", next);
+  }
+  function applyTheme(theme) {
+    html.setAttribute("data-theme", theme);
+    document.getElementById("theme-icon").textContent  = theme === "dark" ? "☀️" : "🌙";
+    document.getElementById("theme-label").textContent = theme === "dark" ? "Light" : "Dark";
+  }
+
+  // Translator helpers
+  function fillAndTranslate(phrase) {
+    const input = document.getElementById("english-input");
+    input.value = phrase;
+    input.dispatchEvent(new Event("input"));
+    document.getElementById("translate-btn").click();
+  }
+  function copyCard(lang) {
+    const card   = document.getElementById("card-" + lang);
+    const native = card.querySelector(".native-script").textContent;
+    const roman  = card.querySelector(".transliteration").textContent;
+    navigator.clipboard.writeText(`${native}\n${roman}`).then(() => {
+      const btn = card.querySelector(".copy-btn");
+      btn.textContent = "Copied!"; btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1800);
+    });
+  }
+</script>
+
+</body>
+</html>
