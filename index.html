@@ -21,16 +21,17 @@
 <div class="container">
 
   <header>
-    <div class="header-badge"><span class="header-dot"></span>5 Languages · Live · Intelligent Conversation</div>
+    <div class="header-badge"><span class="header-dot"></span>6 Languages · Live · Tulu Native</div>
     <h1>Multilingual-Translator</h1>
     <p>Earn Skill Not Degree</p>
-    <p>Translate · Travel · Converse — breaking language barriers in real time</p>
+    <p>Translate · Travel · Converse — including Tulu, the language of Tulu Nadu</p>
     <div class="lang-pills">
       <span class="lang-pill pill-ja">Japanese</span>
       <span class="lang-pill pill-ar">Arabic</span>
       <span class="lang-pill pill-kn">Kannada</span>
       <span class="lang-pill pill-ml">Malayalam</span>
       <span class="lang-pill pill-hi">Hindi</span>
+      <span class="lang-pill pill-tu">Tulu 🌊</span>
     </div>
   </header>
 
@@ -44,7 +45,7 @@
   <div id="panel-translator">
     <div class="input-section">
       <label class="input-label" for="english-input">Enter English text</label>
-      <textarea id="english-input" placeholder="Type a word or phrase… e.g. good morning, namaste" maxlength="200" spellcheck="true" autofocus></textarea>
+      <textarea id="english-input" placeholder="Try: hello, water, yes, goodbye — Tulu has instant answers!" maxlength="200" spellcheck="true" autofocus></textarea>
       <div class="input-footer">
         <span id="char-count">0 / 200</span>
         <div class="btn-row">
@@ -58,16 +59,16 @@
       <button class="hint-chip" onclick="fillAndTranslate('hello')">hello</button>
       <button class="hint-chip" onclick="fillAndTranslate('good morning')">good morning</button>
       <button class="hint-chip" onclick="fillAndTranslate('thank you')">thank you</button>
-      <button class="hint-chip" onclick="fillAndTranslate('goodbye')">goodbye</button>
-      <button class="hint-chip" onclick="fillAndTranslate('i love you')">i love you</button>
+      <button class="hint-chip" onclick="fillAndTranslate('yes')">yes</button>
+      <button class="hint-chip" onclick="fillAndTranslate('no')">no</button>
       <button class="hint-chip" onclick="fillAndTranslate('water')">water</button>
-      <button class="hint-chip" onclick="fillAndTranslate('welcome')">welcome</button>
+      <button class="hint-chip" onclick="fillAndTranslate('goodbye')">goodbye</button>
       <button class="hint-chip" onclick="fillAndTranslate('beautiful')">beautiful</button>
-      <button class="hint-chip" onclick="fillAndTranslate('sorry')">sorry</button>
+      <button class="hint-chip" onclick="fillAndTranslate('i love you')">i love you</button>
       <button class="hint-chip" onclick="fillAndTranslate('help')">help</button>
     </div>
     <div id="error-box" class="hidden"></div>
-    <div id="loader" class="hidden"><span class="spinner"></span> Translating into 5 languages…</div>
+    <div id="loader" class="hidden"><span class="spinner"></span> Translating into 6 languages…</div>
     <div id="results" class="hidden">
       <div class="results-header">
         <p class="original-label">Results for: <strong id="original-text"></strong></p>
@@ -85,7 +86,7 @@
               <polygon points="140,55 160,35 180,55 170,58 160,50 150,58" fill="white" opacity="0.95"/>
               <rect x="0" y="105" width="320" height="25" fill="#1a0d2e"/>
               <rect x="145" y="70" width="4" height="32" fill="#e63946"/><rect x="171" y="70" width="4" height="32" fill="#e63946"/>
-              <path d="M140 68 Q160 62 180 68" fill="none" stroke="#e63946" stroke-width="5"/><rect x="140" y="68" width="40" height="5" rx="1" fill="#e63946"/>
+              <path d="M140 68 Q160 62 180 68" fill="none" stroke="#e63946" stroke-width="5"/>
               <circle cx="42" cy="82" r="12" fill="#ff85a1" opacity="0.8"/><circle cx="278" cy="82" r="12" fill="#ff85a1" opacity="0.8"/>
             </svg>
             <div class="banner-overlay"></div>
@@ -173,97 +174,97 @@
           </div>
         </div>
 
-        <!-- Hindi — Taj Mahal illustration -->
+        <!-- Hindi — Taj Mahal -->
         <div class="lang-card" id="card-hindi">
           <div class="card-banner">
             <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
               <defs>
-                <linearGradient id="hi-sky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#0a1628"/>
-                  <stop offset="60%" stop-color="#1a2a5e"/>
-                  <stop offset="100%" stop-color="#f97316" stop-opacity="0.5"/>
-                </linearGradient>
-                <linearGradient id="hi-water" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#1e3a5f"/>
-                  <stop offset="100%" stop-color="#0d2035"/>
-                </linearGradient>
+                <linearGradient id="hi-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1628"/><stop offset="60%" stop-color="#1a2a5e"/><stop offset="100%" stop-color="#f97316" stop-opacity="0.5"/></linearGradient>
+                <linearGradient id="hi-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1e3a5f"/><stop offset="100%" stop-color="#0d2035"/></linearGradient>
               </defs>
-              <!-- Sky -->
               <rect width="320" height="130" fill="url(#hi-sky)"/>
-              <!-- Stars -->
-              <circle cx="20"  cy="12" r="0.9" fill="white" opacity="0.8"/>
-              <circle cx="55"  cy="8"  r="1.1" fill="white" opacity="0.9"/>
-              <circle cx="90"  cy="18" r="0.8" fill="white" opacity="0.7"/>
-              <circle cx="230" cy="10" r="1.0" fill="white" opacity="0.85"/>
-              <circle cx="270" cy="16" r="0.9" fill="white" opacity="0.8"/>
-              <circle cx="305" cy="8"  r="1.1" fill="white" opacity="0.75"/>
-              <!-- Moon -->
-              <circle cx="280" cy="28" r="12" fill="#f5d76e" opacity="0.9"/>
-              <circle cx="286" cy="24" r="9"  fill="#0a1628"/>
-              <!-- Reflecting pool -->
+              <circle cx="20" cy="12" r="0.9" fill="white" opacity="0.8"/><circle cx="55" cy="8" r="1.1" fill="white" opacity="0.9"/><circle cx="230" cy="10" r="1.0" fill="white" opacity="0.85"/><circle cx="305" cy="8" r="1.1" fill="white" opacity="0.75"/>
+              <circle cx="280" cy="28" r="12" fill="#f5d76e" opacity="0.9"/><circle cx="286" cy="24" r="9" fill="#0a1628"/>
               <rect x="90" y="100" width="140" height="30" fill="url(#hi-water)"/>
-              <!-- Pool reflection of dome (subtle) -->
-              <ellipse cx="160" cy="108" rx="18" ry="6" fill="#c8a87a" opacity="0.2"/>
-              <!-- Ground -->
-              <rect x="0"  y="108" width="90"  height="22" fill="#1a1a0a"/>
-              <rect x="230" y="108" width="90" height="22" fill="#1a1a0a"/>
-              <!-- Taj Mahal base platform -->
-              <rect x="80" y="92" width="160" height="10" rx="1" fill="#c8b89a"/>
-              <rect x="90" y="85" width="140" height="9"  rx="1" fill="#d4c4a8"/>
-              <!-- Side minarets (4) -->
-              <rect x="88"  y="52" width="7" height="35" rx="1" fill="#c8b89a"/>
-              <ellipse cx="91"  cy="52" rx="5" ry="8"  fill="#d4c4a8"/>
-              <line x1="91"  y1="44" x2="91"  y2="38" stroke="#e8d8bc" stroke-width="1"/>
-              <circle cx="91"  cy="38" r="2"  fill="#f5d76e"/>
-              <rect x="225" y="52" width="7" height="35" rx="1" fill="#c8b89a"/>
-              <ellipse cx="228" cy="52" rx="5" ry="8"  fill="#d4c4a8"/>
-              <line x1="228" y1="44" x2="228" y2="38" stroke="#e8d8bc" stroke-width="1"/>
-              <circle cx="228" cy="38" r="2"  fill="#f5d76e"/>
-              <!-- Inner minarets -->
-              <rect x="108" y="60" width="6" height="26" rx="1" fill="#d4c4a8"/>
-              <ellipse cx="111" cy="60" rx="4" ry="6" fill="#ddd0b4"/>
-              <line x1="111" y1="54" x2="111" y2="49" stroke="#e8d8bc" stroke-width="1"/>
-              <circle cx="111" cy="49" r="1.5" fill="#f5d76e"/>
-              <rect x="206" y="60" width="6" height="26" rx="1" fill="#d4c4a8"/>
-              <ellipse cx="209" cy="60" rx="4" ry="6" fill="#ddd0b4"/>
-              <line x1="209" y1="54" x2="209" y2="49" stroke="#e8d8bc" stroke-width="1"/>
-              <circle cx="209" cy="49" r="1.5" fill="#f5d76e"/>
-              <!-- Main building body -->
+              <rect x="80" y="92" width="160" height="10" rx="1" fill="#c8b89a"/><rect x="90" y="85" width="140" height="9" rx="1" fill="#d4c4a8"/>
+              <rect x="88" y="52" width="7" height="35" rx="1" fill="#c8b89a"/><ellipse cx="91" cy="52" rx="5" ry="8" fill="#d4c4a8"/>
+              <line x1="91" y1="44" x2="91" y2="38" stroke="#e8d8bc" stroke-width="1"/><circle cx="91" cy="38" r="2" fill="#f5d76e"/>
+              <rect x="225" y="52" width="7" height="35" rx="1" fill="#c8b89a"/><ellipse cx="228" cy="52" rx="5" ry="8" fill="#d4c4a8"/>
+              <line x1="228" y1="44" x2="228" y2="38" stroke="#e8d8bc" stroke-width="1"/><circle cx="228" cy="38" r="2" fill="#f5d76e"/>
               <rect x="120" y="65" width="80" height="27" rx="2" fill="#e0d0b4"/>
-              <!-- Central arch -->
               <path d="M148 92 L148 75 Q160 65 172 75 L172 92 Z" fill="#0a1628" opacity="0.6"/>
-              <!-- Side arches -->
-              <path d="M124 92 L124 80 Q131 74 138 80 L138 92 Z" fill="#0a1628" opacity="0.4"/>
-              <path d="M182 92 L182 80 Q189 74 196 80 L196 92 Z" fill="#0a1628" opacity="0.4"/>
-              <!-- Main dome -->
-              <ellipse cx="160" cy="65" rx="22" ry="16" fill="#d4c4a8"/>
-              <ellipse cx="160" cy="65" rx="18" ry="13" fill="#ddd0b4"/>
-              <!-- Finial on dome -->
-              <line x1="160" y1="49" x2="160" y2="40" stroke="#c8b89a" stroke-width="1.5"/>
-              <circle cx="160" cy="40" r="2.5" fill="#f5d76e"/>
-              <!-- Small domes on corners -->
-              <ellipse cx="124" cy="68" rx="8" ry="6" fill="#d4c4a8"/>
-              <ellipse cx="196" cy="68" rx="8" ry="6" fill="#d4c4a8"/>
-              <!-- Reflection in pool -->
-              <ellipse cx="160" cy="114" rx="20" ry="5" fill="#d4c4a8" opacity="0.15"/>
-              <!-- Saffron/orange glow at horizon -->
-              <rect x="0" y="118" width="320" height="12" fill="#f97316" opacity="0.1"/>
-              <!-- Devanagari watermark -->
-              <text x="8" y="105" font-family="serif" font-size="26" fill="white" opacity="0.06" font-weight="bold">ह</text>
+              <ellipse cx="160" cy="65" rx="22" ry="16" fill="#d4c4a8"/><ellipse cx="160" cy="65" rx="18" ry="13" fill="#ddd0b4"/>
+              <line x1="160" y1="49" x2="160" y2="40" stroke="#c8b89a" stroke-width="1.5"/><circle cx="160" cy="40" r="2.5" fill="#f5d76e"/>
+            </svg>
+            <div class="banner-overlay"></div>
+          </div>
+          <div class="card-body">
+            <div class="lang-header"><div class="lang-icon icon-hi">HI</div><span class="lang-name">Hindi</span><span class="lang-code">HI</span></div>
+            <p class="script-label">Native script (Devanagari)</p><p class="native-script">—</p>
+            <p class="script-label">Transliteration (Roman)</p><p class="transliteration">—</p>
+            <button class="copy-btn" onclick="copyCard('hindi')">Copy</button>
+          </div>
+        </div>
+
+        <!-- Tulu — Coastal Karnataka / Kambala illustration -->
+        <div class="lang-card" id="card-tulu">
+          <div class="card-banner">
+            <svg viewBox="0 0 320 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="tu-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a2a1a"/><stop offset="55%" stop-color="#0d4a2e"/><stop offset="100%" stop-color="#1a6b82"/></linearGradient>
+                <linearGradient id="tu-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a8a6e"/><stop offset="100%" stop-color="#0d5a4a"/></linearGradient>
+              </defs>
+              <!-- Sky and sea -->
+              <rect width="320" height="130" fill="url(#tu-sky)"/>
+              <rect x="0" y="85" width="320" height="45" fill="url(#tu-sea)"/>
+              <!-- Stars -->
+              <circle cx="25" cy="12" r="1" fill="white" opacity="0.9"/>
+              <circle cx="80" cy="8" r="0.8" fill="white" opacity="0.8"/>
+              <circle cx="200" cy="15" r="1.1" fill="white" opacity="0.85"/>
+              <circle cx="270" cy="9" r="0.9" fill="white" opacity="0.8"/>
+              <!-- Moon -->
+              <circle cx="260" cy="30" r="13" fill="#f5e6a0" opacity="0.9"/>
+              <circle cx="266" cy="26" r="10" fill="#0a2a1a"/>
+              <!-- Moon reflection on water -->
+              <ellipse cx="220" cy="100" rx="25" ry="5" fill="#f5e6a0" opacity="0.12"/>
+              <!-- Coconut palm left -->
+              <path d="M40 130 Q42 100 44 75 Q46 55 48 40" stroke="#2d4a1e" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <path d="M48 40 Q28 28 12 35" stroke="#3a6b28" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+              <path d="M48 40 Q38 25 35 12" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M48 40 Q60 26 68 14" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M48 40 Q62 35 72 30" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <circle cx="48" cy="44" r="4" fill="#8B6914" opacity="0.9"/>
+              <circle cx="52" cy="41" r="3.5" fill="#7a5c10" opacity="0.9"/>
+              <!-- Coconut palm right -->
+              <path d="M280 130 Q278 100 276 75 Q274 55 272 40" stroke="#2d4a1e" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <path d="M272 40 Q292 28 308 35" stroke="#3a6b28" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+              <path d="M272 40 Q282 25 285 12" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M272 40 Q260 26 252 14" stroke="#3a6b28" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <circle cx="272" cy="44" r="4" fill="#8B6914" opacity="0.9"/>
+              <!-- Traditional boat (Tulu Nadu fishing boat) -->
+              <path d="M100 100 Q160 92 220 100 L215 112 Q160 118 105 112 Z" fill="#4a2800"/>
+              <line x1="160" y1="112" x2="160" y2="78" stroke="#8b5e2a" stroke-width="2.5"/>
+              <!-- Sail -->
+              <path d="M160 80 Q185 86 180 100 Q168 106 160 112" fill="#e8d5a0" opacity="0.85"/>
+              <!-- Sea waves -->
+              <path d="M0 95 Q40 92 80 95 Q120 98 160 95 Q200 92 240 95 Q280 98 320 95" fill="none" stroke="#4fd1c5" stroke-width="0.8" opacity="0.4"/>
+              <path d="M0 105 Q40 102 80 105 Q120 108 160 105 Q200 102 240 105 Q280 108 320 105" fill="none" stroke="#4fd1c5" stroke-width="0.6" opacity="0.25"/>
+              <!-- Tulu script watermark -->
+              <text x="8" y="80" font-family="serif" font-size="22" fill="white" opacity="0.06" font-weight="bold">ತು</text>
             </svg>
             <div class="banner-overlay"></div>
           </div>
           <div class="card-body">
             <div class="lang-header">
-              <div class="lang-icon icon-hi">HI</div>
-              <span class="lang-name">Hindi</span>
-              <span class="lang-code">HI</span>
+              <div class="lang-icon icon-tu">TU</div>
+              <span class="lang-name">Tulu</span>
+              <span class="lang-code">TU</span>
             </div>
-            <p class="script-label">Native script (Devanagari)</p>
+            <p class="script-label">Native script (Kannada)</p>
             <p class="native-script">—</p>
             <p class="script-label">Transliteration (Roman)</p>
             <p class="transliteration">—</p>
-            <button class="copy-btn" onclick="copyCard('hindi')">Copy</button>
+            <button class="copy-btn" onclick="copyCard('tulu')">Copy</button>
           </div>
         </div>
 
@@ -277,7 +278,7 @@
       <div class="traveler-intro-icon">✈️</div>
       <div class="traveler-intro-text">
         <h3>Traveler's Phrasebook</h3>
-        <p>Pick a situation. Tap <strong>Show to Local</strong> to display fullscreen native script — hand your phone to them.</p>
+        <p>Pick a situation. Now includes <strong>Tulu</strong> — the language of Tulu Nadu. Tap <strong>Show to Local</strong> for fullscreen native script.</p>
       </div>
     </div>
     <div id="situation-bar"></div>
@@ -291,7 +292,7 @@
       <div class="conv-intro-icon">🤝</div>
       <div class="conv-intro-text">
         <h3>Intelligent Two-Way Interpreter</h3>
-        <p>Tap the mic — speak in <strong>any language</strong>. Auto-detects who is speaking, translates instantly in the right direction, speaks aloud. No buttons to switch. No interpreter needed.</p>
+        <p>Tap the mic — auto-detects language, translates instantly, speaks aloud. Now supports <strong>Tulu</strong> from local dictionary.</p>
       </div>
     </div>
     <div class="conv-controls">
@@ -318,20 +319,21 @@
         <div class="conv-manual-body"><textarea id="conv-input-en" placeholder="Type in English…"></textarea><button class="conv-manual-send" id="conv-send-en">Send</button></div>
       </div>
       <div class="conv-manual-panel">
-        <div class="conv-manual-header"><span class="conv-panel-dot dot-b"></span><span class="conv-manual-title"><span id="conv-local-flag">🇮🇳</span> <span id="conv-local-label">Hindi</span></span><span class="conv-manual-sub">hand phone to them</span></div>
-        <div class="conv-manual-body"><textarea id="conv-input-local" placeholder="Type in Hindi…"></textarea><button class="conv-manual-send" id="conv-send-local">Send</button></div>
+        <div class="conv-manual-header"><span class="conv-panel-dot dot-b"></span><span class="conv-manual-title"><span id="conv-local-flag">🌊</span> <span id="conv-local-label">Tulu</span></span><span class="conv-manual-sub">hand phone to them</span></div>
+        <div class="conv-manual-body"><textarea id="conv-input-local" placeholder="Type in Tulu…"></textarea><button class="conv-manual-send" id="conv-send-local">Send</button></div>
       </div>
     </div>
     <div id="conv-feed"></div>
   </div>
 
   <footer>
-    <p>Powered by <a href="https://mymemory.translated.net" target="_blank">MyMemory API</a> &middot; Fonts by <a href="https://fonts.google.com/noto" target="_blank">Google Noto</a> &middot; 100% free</p>
-    <p style="margin-top:0.4rem;font-size:0.72rem;">Designed &amp; Developed by <span style="color:var(--accent);font-weight:600;">CVA</span></p>
+    <p>Powered by <a href="https://mymemory.translated.net" target="_blank">MyMemory API</a> &middot; Tulu dictionary handcrafted for Tulu Nadu &middot; 100% free</p>
+    <p style="margin-top:0.4rem;font-size:0.72rem;">Designed &amp; Developed by <span style="color:var(--accent);font-weight:600;">CVA</span> — Proud Tulu Nadu 🌊</p>
   </footer>
 
 </div>
 
+<!-- Show to Local overlay -->
 <div id="local-overlay" class="hidden">
   <div id="local-modal">
     <div class="local-header">
@@ -342,14 +344,16 @@
   </div>
 </div>
 
+<!-- Scripts — ORDER MATTERS -->
 <script src="config.js"></script>
 <script src="js/dictionary.js"></script>
+<script src="js/tulu_dictionary.js"></script>
 <script src="js/cache.js"></script>
 <script src="js/translator.js"></script>
 <script src="js/transliterate.js"></script>
 <script src="js/phrases.js"></script>
 <script src="js/app.js"></script>
-<script src="js/tulu_dictionary.js"></script>
+
 <script>
   const html=document.documentElement;
   applyTheme(localStorage.getItem("mlt-theme")||"light");
