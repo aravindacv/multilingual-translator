@@ -174,20 +174,19 @@ function lookupTulu(text) {
     const base = TULU_DICT[bestKey];
     const remainder = text.trim().slice(bestLen).trim();
     if (remainder && isProperName(remainder.replace(/\s+/g,""))) {
-      // Remainder is a name — phonetically convert it
+      // Remainder is a single name — phonetically convert it
       const words = remainder.split(/\s+/);
       const kannadaName = words.map(w => phoneticToKannada(w)).join(" ");
       return {
         native: base.native + " " + kannadaName,
         transliteration: base.transliteration + " " + remainder.charAt(0).toUpperCase() + remainder.slice(1),
       };
-    } else if (remainder) {
-      // Remainder is not a simple name — return just the base phrase
-      return base;
     }
+    // Remainder has more content — return null so caller uses Kannada API for full sentence
+    if (remainder) return null;
     return base;
   }
 
-  // 3. No match → return null → let the caller use Kannada API for better accuracy
+  // 3. No match → return null → caller uses Kannada API for better accuracy
   return null;
 }
